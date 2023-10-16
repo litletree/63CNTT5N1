@@ -15,7 +15,7 @@ namespace MyClass.Model
         public int Id { get; set; }
 
         [Display(Name="Tên loại hàng")]
-        [Required]
+        [Required(ErrorMessage ="Tên loại SP không để trống")]
         public string Name { get; set; }
         [Display(Name = "Tên rút gọn")]
 
@@ -25,25 +25,30 @@ namespace MyClass.Model
         public int ParentID { get; set; }
         [Display(Name = "Sắp xếp")]
         public int? Order { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Mô tả không để trống")]
         [Display(Name = "Mô tả")]
         public string MetaDesc { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Từ Khóa không để trống")]
         [Display(Name = "Từ khóa")]
         public string MetaKey { get; set; }
 
+        [Required(ErrorMessage = "Ngày tạo không để trống")]
         [Display(Name = "Ngày tạo")]
         public DateTime CreateAt { get; set; }
 
+        [Required(ErrorMessage = "Người tạo không để trống")]
         [Display(Name = "Người tạo")]
         public int CreateBy { get; set; }
 
+        [Required(ErrorMessage = "Ngày cập nhật không để trống")]
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdateAt { get; set; }
-
+        
+        [Required(ErrorMessage = "Người cập nhật không để trống")]
         [Display(Name = "Cập nhật bởi")]
         public int UpdateBy { get; set; }
 
+        [Required(ErrorMessage = "Trạng thái không để trống")]
         [Display(Name = "Trạng thái")]
         public int Status { get; set; }
     }
