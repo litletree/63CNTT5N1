@@ -151,7 +151,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
             if (id == null)
             {
                 //thong bao that bai
-                TempData["message"] = ("Cập nhật trạng thái thất bại");
+                TempData["message"] = new XMessage ("danger","Cập nhật trạng thái thất bại");
                 return RedirectToAction("Index");
             }
             //truy van id
@@ -167,7 +167,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
             categoriesDAO.Update(categories);
 
             //thong bao cap nhat trang thai thanh cong
-            TempData["message"] = ("Cập nhật trạng thái thành công");
+            TempData["message"] = new XMessage ("success","Cập nhật trạng thái thành công");
 
             return RedirectToAction("Index");
         }
