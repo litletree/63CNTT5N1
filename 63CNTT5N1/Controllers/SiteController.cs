@@ -13,8 +13,8 @@ namespace _63CNTT5N1.Controllers
         public ActionResult Index()
         {
             MyDBContext db = new MyDBContext();
-            int sodong = db.Products.Count();
-            ViewBag.sodong = sodong;
+            int count = db.Products.Count();
+            ViewBag.choi = count;
             return View();
         }
     }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace MyClass.Model
 {
@@ -22,6 +22,6 @@ namespace MyClass.Model
         public DbSet<Suppliers> Suppliers { get; set; }
         public DbSet<Topics> Topics { get; set; }
         public DbSet<Users> Users { get; set; }
-    }
 
+    }
 }

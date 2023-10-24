@@ -26,7 +26,7 @@ namespace MyClass.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=master;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=tempdb;Integrated Security=True")]
         public string StrConnect {
             get {
                 return ((string)(this["StrConnect"]));
