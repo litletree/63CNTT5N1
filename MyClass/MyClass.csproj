@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{92A6F917-D710-4B68-968A-298F9C802DE7}</ProjectGuid>
+    <ProjectGuid>{4DCBEDBE-EB97-41EF-9616-131C731B5859}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MyClass</RootNamespace>
@@ -12,8 +12,6 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\CategoriesDAO.cs" />
+    <Compile Include="DAO\SuppliersDAO.cs" />
     <Compile Include="Model\Categories.cs" />
     <Compile Include="Model\Contacts.cs" />
     <Compile Include="Model\Links.cs" />

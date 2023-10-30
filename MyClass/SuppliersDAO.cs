@@ -8,71 +8,72 @@ using System.Threading.Tasks;
 
 namespace MyClass.DAO
 {
-    public  class CategoriesDAO
+    //copy noi dung cua class categoriesDAO, thay the categories thanh suppliers
+    public class SuppliersDAO
     {
         private MyDBContext db = new MyDBContext();
 
         //SELECT * FROM ...
-        public List<Categories> getList()
+        public List<Suppliers> getList()
         {
-            return db.Categories.ToList();
+            return db.Suppliers.ToList();
         }
 
         //Index chi voi staus 1,2        
-        public List<Categories> getList(string status = "ALL")//status 0,1,2
+        public List<Suppliers> getList(string status = "ALL")//status 0,1,2
         {
-            List<Categories> list = null;
+            List<Suppliers> list = null;
             switch (status)
             {
                 case "Index"://1,2
                     {
-                        list = db.Categories.Where(m => m.Status != 0).ToList();
+                        list = db.Suppliers.Where(m => m.Status != 0).ToList();
                         break;
                     }
                 case "Trash"://0
                     {
-                        list = db.Categories.Where(m => m.Status == 0).ToList();
+                        list = db.Suppliers.Where(m => m.Status == 0).ToList();
                         break;
                     }
                 default:
                     {
-                        list = db.Categories.ToList();
+                        list = db.Suppliers.ToList();
                         break;
                     }
             }
             return list;
         }
         //details
-        public Categories getRow(int? id)
+        public Suppliers getRow(int? id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return null;
             }
             else
             {
-                return db.Categories.Find(id);
+                return db.Suppliers.Find(id);
             }
         }
 
         //tao moi mau tin
-        public int Insert(Categories row)
+        public int Insert(Suppliers row)
         {
-            db.Categories.Add(row);
+            db.Suppliers.Add(row);
             return db.SaveChanges();
         }
 
         //cap nhat mau tin
-        public int Update(Categories row)
+        public int Update(Suppliers row)
         {
             db.Entry(row).State = EntityState.Modified;
             return db.SaveChanges();
         }
 
         //Xoa mau tin
-        public int Delete(Categories row)
+        public int Delete(Suppliers row)
         {
-            db.Categories.Remove(row);
+            db.Suppliers.Remove(row);
             return db.SaveChanges();
         }
     }

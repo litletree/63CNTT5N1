@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyClass.Model
 {
-    public class MyDBContext : DbContext
+    public class MyDBContext: DbContext
     {
         public MyDBContext() : base("name = StrConnect") { }
         public DbSet<Categories> Categories { get; set; }

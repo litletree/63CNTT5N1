@@ -14,8 +14,8 @@ namespace MyClass.Model
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Tên loại SP không để trống")]
-        [Display(Name = "Tên loại SP")]
+        [Required(ErrorMessage ="Tên loại SP không để trống")]
+        [Display(Name="Tên loại SP")]
         public string Name { get; set; }
 
         [Display(Name = "Tên rút gọn")]

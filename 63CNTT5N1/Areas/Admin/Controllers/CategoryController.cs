@@ -15,7 +15,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         CategoriesDAO categoriesDAO = new CategoriesDAO();
-
+        
         //////////////////////////////////////////////////////////////////////////////////////
         //INDEX
         // GET: Admin/Category
@@ -49,7 +49,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
         // GET: Admin/Category/Create
         public ActionResult Create()
         {
-            ViewBag.ListCat = new SelectList(categoriesDAO.getList("Index"), "Id", "Name");
+            ViewBag.ListCat = new SelectList(categoriesDAO.getList("Index"),"Id","Name");
             ViewBag.ListOrder = new SelectList(categoriesDAO.getList("Index"), "Order", "Name");
             return View();
         }
@@ -65,7 +65,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                 //Xu ly tu dong: UpdateAt
                 categories.UpdateAt = DateTime.Now;
                 //Xu ly tu dong: ParentId
-                if (categories.ParentID == null)
+                if (categories.ParentID==null)
                 {
                     categories.ParentID = 0;
                 }
@@ -125,13 +125,12 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                 //xu ly tu dong: Slug
                 categories.Slug = XString.Str_Slug(categories.Name);
                 //xu ly tu dong: ParentID
-                if (categories.ParentID == null)
+                if(categories.ParentID == null)
                 {
                     categories.ParentID = 0;
                 }
                 //xu ly tu dong: Order
-                if (categories.Order == null)
-                {
+                if(categories.Order == null){
                     categories.Order = 1;
                 }
                 else
