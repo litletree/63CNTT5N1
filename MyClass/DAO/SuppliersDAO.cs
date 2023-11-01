@@ -11,7 +11,7 @@ namespace MyClass.DAO
     public class SuppliersDAO
     {
         //Copy noi dung cua class CATEGORIES, thay the Categories bang Suppliers
-        private MyDBContext db = new MyDBContext();
+        public MyDBContext db = new MyDBContext();
 
         //SELECT * FROM ...
         public List<Suppliers> getList()
