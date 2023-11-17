@@ -124,6 +124,8 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                 TempData["message"] = new XMessage("danger", "Không tồn tại sản phẩm");
                 return RedirectToAction("Index");
             }
+            ViewBag.ListCatID = new SelectList(categoriesDAO.getList("Index"), "id", "Name");//sai CatID - truy van tu bang Categories
+            ViewBag.ListSupID = new SelectList(suppliersDAO.getList("Index"), "id", "Name");//sai SupplierID - truy van bang Suppliers
             return View(products);
         }
 
