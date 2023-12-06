@@ -30,7 +30,7 @@ namespace MyClass.Model
         public string Slug { get; set; }
 
         [Display(Name = "Hình ảnh")]
-        public string Img { get; set; }
+        public string Image { get; set; }
 
         [Display(Name = "Giá nhập")]
         public decimal Price { get; set; }

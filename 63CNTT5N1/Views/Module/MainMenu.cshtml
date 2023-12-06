@@ -12,10 +12,10 @@
         <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
                 @*Trang chu*@
-                <li class="nav-item active"><a class="nav-link" href="https://localhost:44317">TRANG CHỦ</a></li>
+                <li class="nav-item active"><a class="nav-link" href="~/">TRANG CHỦ</a></li> @*https://localhost:44317*@
                 @*Loai San pham*@
                 <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="~/Admin/Category/Index" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">LOẠI SẢN PHẨM</a>
                     <ul class="dropdown-menu">
                         @*bat dau tu cho nay*@
@@ -33,7 +33,7 @@
                 </li>
                 @*Nha cung cap*@
                 <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="~/Admin/Supplier/Index" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">NHÀ CUNG CẤP</a>
                     <ul class="dropdown-menu">
                         @*bat dau tu cho nay*@
@@ -51,7 +51,7 @@
                 </li>
                 @*San pham*@
                 <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    <a href="~/Admin/Product/Index" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">SẢN PHẨM</a>
                     <ul class="dropdown-menu">
                         @*bat dau tu cho nay*@
@@ -77,16 +77,13 @@
                             <a class="nav-link text-uppercase active" href="@item.Link">@item.Name</a>
                         </li>
                     }
-
                 }
-
                 @*Het meu chinh*@
             </ul>
 
             <ul class="nav-shop">
-                <li class="nav-item"><button><i class="ti-search"></i></button></li>
-                <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle">3</span></button> </li>
-                <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
+                <li class="nav-item"><a class="button button-header" href="~/Account/Register">Đăng Ký</a></li>
+                <li class="nav-item"><a class="button button-header" href="#">Đăng Nhập</a></li>
             </ul>
         </div>
     </div>

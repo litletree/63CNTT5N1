@@ -13,39 +13,19 @@ namespace MyClass.Model
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Tên đăng nhập không được để trống")]
         public string Username { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu không được để trống")]
         public string Password { get; set; }
-
-        [Required]
-        public string FullName { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu phải được xác nhận")]
+        [Compare("Password", ErrorMessage = "Mật khẩu không khớp")]
+        public string ConfrimPassword { get; set; }
+        [Required(ErrorMessage = "Email không được để trống")]
+        [EmailAddress(ErrorMessage ="Email không hợp lệ")]
         public string Email { get; set; }
-
-        [Required]
-        public string Phone { get; set; }
-
-        public string Img { get; set; }
-
-        [Required]
-        public string Role { get; set; }
-
-        public int Gender { get; set; }
-
+        public string Mobile { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string Address { get; set; }
-
-        public int CreateBy { get; set; }
-
-        public DateTime CreateAt { get; set; }
-
-        public int UpdateBy { get; set; }
-
-        public DateTime UpdateAt { get; set; }
-
-        public int Status { get; set; }
+        public string City { get; set; }
     }
 }

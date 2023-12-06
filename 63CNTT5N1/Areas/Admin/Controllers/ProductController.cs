@@ -88,7 +88,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                         string slug = products.Slug;
                         //ten file = Slug + phan mo rong cua tap tin
                         string imgName = slug + img.FileName.Substring(img.FileName.LastIndexOf("."));
-                        products.Img = imgName;
+                        products.Image = imgName;
                         //upload hinh
                         string PathDir = "~/Public/img/product";
                         string PathFile = Path.Combine(Server.MapPath(PathDir), imgName);
@@ -144,15 +144,18 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
 
                 //xu ly cho phan upload hình ảnh
                 var img = Request.Files["img"];//lay thong tin file
-                string PathDir = "~/Public/img/supplier/";
+                string PathDir = "~/Public/img/product/";
+                if (img.ContentLength != 0 && products.Image != null)//ton tai mot logo cua NCC tu truoc
+                {
+                    //xoa anh cu
+                    string DelPath = Path.Combine(Server.MapPath(PathDir), products.Image);
+                    System.IO.File.Delete(DelPath);
+                }
+
+                //upload anh moi cua NCC: Copy tu Supplier
+                //xu ly cho phan upload hinh anh
                 if (img.ContentLength != 0)
                 {
-                    //xu ly cho muc xoa hinh anh
-                    if (products.Img != null)
-                    {
-                        string DelPath = Path.Combine(Server.MapPath(PathDir), products.Img);
-                        System.IO.File.Delete(DelPath);
-                    }
                     string[] FileExtentions = new string[] { ".jpg", ".jpeg", ".png", ".gif" };
                     //kiem tra tap tin co hay khong
                     if (FileExtentions.Contains(img.FileName.Substring(img.FileName.LastIndexOf("."))))//lay phan mo rong cua tap tin
@@ -160,12 +163,12 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                         string slug = products.Slug;
                         //ten file = Slug + phan mo rong cua tap tin
                         string imgName = slug + img.FileName.Substring(img.FileName.LastIndexOf("."));
-                        products.Img = imgName;
+                        products.Image = imgName;//abc-def.jpg
                         //upload hinh
                         string PathFile = Path.Combine(Server.MapPath(PathDir), imgName);
                         img.SaveAs(PathFile);
                     }
-                }//ket thuc phan upload hinh anh         
+                }//ket thuc phan upload hinh anh       
 
                 //cap mhat mau tin vao DB
                 productsDAO.Update(products);
@@ -208,9 +211,9 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
             if (productsDAO.Delete(products) == 1)
             {
                 //Xu ly cho muc xoa hinh anh
-                if (products.Img != null)
+                if (products.Image != null)
                 {
-                    string DelPath = Path.Combine(Server.MapPath(PathDir), products.Img);
+                    string DelPath = Path.Combine(Server.MapPath(PathDir), products.Image);
                     System.IO.File.Delete(DelPath);
                 }
             }

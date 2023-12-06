@@ -18,7 +18,7 @@ namespace MyClass.DAO
             return db.Menus.ToList();
         }
 
-        public List<Menus> getListByParentId(int parentid = 0)
+        public List<Menus> getListByParentId(int parentid = 0, string v = null)
         {
             return db.Menus
                 .Where(m => m.ParentID == parentid && m.Status == 1)

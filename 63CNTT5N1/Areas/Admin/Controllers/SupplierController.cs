@@ -10,6 +10,7 @@ using MyClass.Model;
 using MyClass.DAO;
 using UDW.Library;
 using System.IO;
+using System.Data.Entity.Infrastructure;
 
 namespace _63CNTT5N1.Areas.Admin.Controllers
 {
@@ -150,6 +151,7 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                 suppliers.Slug = XString.Str_Slug(suppliers.Name);
 
                 //xu ly cho phan upload hinh anh
+                
                 var img = Request.Files["img"];//lay thong tin file
                 string PathDir = "~/Public/img/supplier";
                 if (img.ContentLength != 0)
@@ -167,13 +169,12 @@ namespace _63CNTT5N1.Areas.Admin.Controllers
                     {
                         string slug = suppliers.Slug;
                         //ten file = Slug + phan mo rong cua tap tin
-                        string imgName = slug + img.FileName.Substring(img.FileName.LastIndexOf("."));
+                        string imgName = slug + suppliers.Id + img.FileName.Substring(img.FileName.LastIndexOf("."));
                         suppliers.Image = imgName;
                         //upload hinh
                         string PathFile = Path.Combine(Server.MapPath(PathDir), imgName);
                         img.SaveAs(PathFile);
                     }
-                    
                 }//ket thuc phan upload hinh anh
 
                 //cap nhat mau tin vao DB
